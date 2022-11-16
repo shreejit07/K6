@@ -9,11 +9,44 @@ export let options={
 //vus: 10, duration:'10s'
 }
 
-export default function() {
- let response = http.get("https://run.mocky.io/v3/292bdbd2-590d-4b26-9b1e-288a34195a20");
- check(response, {
-  'Response status is 200!' : (r)=> r.status ===200,
-})
+export function setup() {
 
+
+}
+
+
+export default function(){
+  const url = 'https://tampdevapp.azurewebsites.net/V1/Authenticate/Login';
+  const payload = JSON.stringify({
+    email: 'joshray@yopmail.com',
+    password: 'Shree@1234',
+  });
+  
+  const params = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  
+  //http.post(url, payload, params);
+  const response = http.post(url, payload, params);
+  check(response, {
+  'Response status is 200!' : (r)=> r.status ===200,
+  })
+  const Token = response.json('result.token');
+  console.log('Token is:'+ Token);
+ 
+
+const url1 ="https://tampdevapp.azurewebsites.net/v1/User/Operators"
+const params1 = {
+  headers: {
+    Authorization: 'Bearer ${Token}',
+  },
+};
+http.get(url1,params1);
+const res = http.get(url1,params1);
+check(res, {
+  'Response status is 200!' : (r)=> r.status ===200,
+  })
 }
 
