@@ -37,6 +37,6 @@ export default (Token) => {
 	let operators = http.get(`https://tampdevapp.azurewebsites.net/v1/User/Operators`, {headers: request_headers});
 	const message = operators.json().result;
     console.log(message);
-	/*check(message, { 'get accounts unauthorized': () => message === 'Unauthorized Token.' });*/
+	
     });		
 };
