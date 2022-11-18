@@ -1,11 +1,11 @@
 import http from 'k6/http';
 import {check} from 'k6';
-
+import {rate} from 'k6/metrics';
 export let options={
- //stages:[
-  // {duration:'10s', target:5},
-  //  {duration:'20s', target:10}
- // ]
+ stages:[
+  {duration:'10s', target:5},
+ {duration:'20s', target:10}
+ ]
 //vus: 10, duration:'10s'
 }
 
@@ -37,14 +37,17 @@ export default function(){
   console.log('Token is:'+ Token);
  
 
-const url1 ="https://tampdevapp.azurewebsites.net/v1/User/Operators"
-const params1 = {
+const url1 ="https://tampdevapp.azurewebsites.net/v1/User/Operators";
+
+const params2 = {
   headers: {
     Authorization: 'Bearer ${Token}',
   },
 };
+console.log(JSON.stringify(params));
 http.get(url1,params1);
-const res = http.get(url1,params1);
+const res = http.get(url1,Token);
+console.log(JSON.stringify(res));
 check(res, {
   'Response status is 200!' : (r)=> r.status ===200,
   })
