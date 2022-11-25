@@ -4,7 +4,9 @@ import {Trend} from 'k6/metrics';
 //import {rate} from 'k6/metrics';
 var getApitrend = new Trend("Get_api_trend");
 var postApitrend = new Trend("Post_api_trend");
+
 export let options = {
+  //Rampup Rampdown 
   stages: [
     { duration: '10s', target: 5 },
     { duration: '10s', target: 10 }
