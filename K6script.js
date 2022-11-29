@@ -8,10 +8,18 @@ var postApitrend = new Trend("Post_api_trend");
 export let options = {
   //Rampup Rampdown 
   stages: [
-    { duration: '10s', target: 5 },
-    { duration: '10s', target: 10 }
-  ]
+    { duration: '10s', target: 15 },
+    { duration: '10s', target: 30 },
+    { duration: '10s', target: 0 },
+  ],
   //vus: 10, duration:'10s'
+  ext: {
+    loadimpact: {
+      projectID: 3611094,
+      // Test runs with the same name groups test runs together
+      name: "Basic Cloud Test"
+    }
+  }
 }
 
 export function setup() {
