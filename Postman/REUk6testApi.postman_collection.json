@@ -1,0 +1,598 @@
+{
+	"info": {
+		"_postman_id": "80bf8964-0ffa-45c9-91f4-4fbbb038197c",
+		"name": "REUk6testApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21862109"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resData = pm.response.json();",
+									"console.log({resData})",
+									"pm.environment.set(\"token\", resData.data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"adminuser07@yopmail.com\",\n    \"password\": \"Simform@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/users/login",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"developer@simform.com\",\n    \"password\": \"test@123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apiUrl}}/users/login",
+									"host": [
+										"{{apiUrl}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "Get Course exams",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/courses/61121399b1fbee06b0902cff/exams?search=new exam",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"courses",
+								"61121399b1fbee06b0902cff",
+								"exams"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "new exam"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"availability\": \"12\",\n    \"description\": \"test\",\n    \"image\": \"C:\\\\Users\\\\sreejit\\\\Downloads\\\\course.jpg\",\n    \"inactiveTime\": 60,\n    \"outOfFocusPause\": \"true\",\n    \"title\": \"Demo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/courses",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Core library",
+			"item": [
+				{
+					"name": "Update core library lesson",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"get started with florida lesson\",\n    \"unlockNextLesson\":\"ON_LESSON_START\",\n    \"maxTime\":\"31\",\n    \"requiredTime\":\"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/core/lessons/62b409565b5913c6c0c91e25",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"core",
+								"lessons",
+								"62b409565b5913c6c0c91e25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create core lib lessons",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"coreChaptersLink\": \"60630e11603be8cc3dae387e,6065f19186da8b67731306af\",\n    \"coreLessonsLink\": \"60630e1d603be8cc3dae3881,6065f22a86da8b67731306b3\",\n    \"courseId\":\"606192f35ceac9002e6a9c7f\",\n    \"isCreatedAsStatic\":true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/courses/lessons-core",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"courses",
+								"lessons-core"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publish Core Library lessons",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/core/63491626690a262126935b45/publish",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"core",
+								"63491626690a262126935b45",
+								"publish"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Permissions",
+			"item": [
+				{
+					"name": "Get Permissions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/permissions",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Permission Group",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"groupName\": \"Owners 2\",\n    \"allowedPermissions\": [],\n    \"groupOrder\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/permissions/group/create",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"permissions",
+								"group",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Permission types",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/permissions/types",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"permissions",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get permission groups",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/permissions/groups",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"permissions",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update permission group",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \n    \"groupOrder\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/permissions/group/edit/62c6de2935fbac8b2a333b78",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"permissions",
+								"group",
+								"edit",
+								"62c6de2935fbac8b2a333b78"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete permission group",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/permissions/group/delete/62cebffbdef4cec7f7c26f51",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"permissions",
+								"group",
+								"delete",
+								"62cebffbdef4cec7f7c26f51"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Permissions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"module\": \"grading\",\n    \"permissionsList\": [\n      {\n        \"permission\": \"viewGrading\",\n        \"displayName\": \"View Grading\",\n        \"severity\": \"normal\"\n      },\n      {\n        \"permission\": \"submitGradingFeedback\",\n        \"displayName\": \"Submit Grading Feedfack\",\n        \"severity\": \"normal\"\n      }      \n    ]\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/permissions/update/62c537ebead730f2b7aa6955",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"permissions",
+								"update",
+								"62c537ebead730f2b7aa6955"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Packages",
+			"item": [
+				{
+					"name": "Get all Packages",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/packages",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"packages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All User Packages",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiUrl}}/users/6273e6f6ce04d40027baadcd/packages",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"6273e6f6ce04d40027baadcd",
+								"packages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Discounts",
+			"item": [
+				{
+					"name": "Update discount groups",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"createdAt\": \"2022-03-09T21:58:47.071Z\",\n    \"defaultCommisionType\": \"PERCENTAGE\",\n    \"defaultCommisionValue\": 25,\n    \"defaultDiscountType\": \"PERCENTAGE\",\n    \"defaultDiscountValue\": 2,\n    \"defaultFixedCode\": \"\",\n    \"name\": \"Students\",\n    \"updatedAt\": \"2022-07-25T05:34:48.377Z\",\n    \"__v\": 0,\n    \"_id\": \"62292317abd65500273bd0f7\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/discounts/groups/62292317abd65500273bd0f7",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"discounts",
+								"groups",
+								"62292317abd65500273bd0f7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

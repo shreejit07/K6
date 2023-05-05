@@ -1,0 +1,402 @@
+{
+	"info": {
+		"_postman_id": "f0e9482a-b1f5-453c-9794-bcc9b9b6cce4",
+		"name": "Cricbuzz_API_Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21862109"
+	},
+	"item": [
+		{
+			"name": "Stats",
+			"item": [
+				{
+					"name": "Get ICC Standings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-Key",
+								"value": "fa2859d5a3msh2a46eb1fd89e982p149436jsncb8c4e471491",
+								"type": "text"
+							},
+							{
+								"key": "X-RapidAPI-Host",
+								"value": "cricbuzz-cricket.p.rapidapi.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/iccstanding/team/matchtype/2",
+							"protocol": "https",
+							"host": [
+								"cricbuzz-cricket",
+								"p",
+								"rapidapi",
+								"com"
+							],
+							"path": [
+								"stats",
+								"v1",
+								"iccstanding",
+								"team",
+								"matchtype",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ICC Rankings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-Key",
+								"value": "fa2859d5a3msh2a46eb1fd89e982p149436jsncb8c4e471491",
+								"type": "text"
+							},
+							{
+								"key": "X-RapidAPI-Host",
+								"value": "cricbuzz-cricket.p.rapidapi.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen?formatType=t20",
+							"protocol": "https",
+							"host": [
+								"cricbuzz-cricket",
+								"p",
+								"rapidapi",
+								"com"
+							],
+							"path": [
+								"stats",
+								"v1",
+								"rankings",
+								"batsmen"
+							],
+							"query": [
+								{
+									"key": "formatType",
+									"value": "t20"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teams",
+			"item": [
+				{
+					"name": "Get Teams List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-Key",
+								"value": "fa2859d5a3msh2a46eb1fd89e982p149436jsncb8c4e471491",
+								"type": "text"
+							},
+							{
+								"key": "X-RapidAPI-Host",
+								"value": "cricbuzz-cricket.p.rapidapi.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://cricbuzz-cricket.p.rapidapi.com/teams/v1/international",
+							"protocol": "https",
+							"host": [
+								"cricbuzz-cricket",
+								"p",
+								"rapidapi",
+								"com"
+							],
+							"path": [
+								"teams",
+								"v1",
+								"international"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Players",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-Key",
+								"value": "fa2859d5a3msh2a46eb1fd89e982p149436jsncb8c4e471491",
+								"type": "text"
+							},
+							{
+								"key": "X-RapidAPI-Host",
+								"value": "cricbuzz-cricket.p.rapidapi.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://cricbuzz-cricket.p.rapidapi.com/teams/v1/2/players",
+							"protocol": "https",
+							"host": [
+								"cricbuzz-cricket",
+								"p",
+								"rapidapi",
+								"com"
+							],
+							"path": [
+								"teams",
+								"v1",
+								"2",
+								"players"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "News List",
+			"item": [
+				{
+					"name": "Get News List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-Key",
+								"value": "fa2859d5a3msh2a46eb1fd89e982p149436jsncb8c4e471491",
+								"type": "text"
+							},
+							{
+								"key": "X-RapidAPI-Host",
+								"value": "cricbuzz-cricket.p.rapidapi.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://cricbuzz-cricket.p.rapidapi.com/news/v1/index",
+							"protocol": "https",
+							"host": [
+								"cricbuzz-cricket",
+								"p",
+								"rapidapi",
+								"com"
+							],
+							"path": [
+								"news",
+								"v1",
+								"index"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get News Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-Key",
+								"value": "fa2859d5a3msh2a46eb1fd89e982p149436jsncb8c4e471491",
+								"type": "text"
+							},
+							{
+								"key": "X-RapidAPI-Host",
+								"value": "cricbuzz-cricket.p.rapidapi.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://cricbuzz-cricket.p.rapidapi.com/news/v1/detail/122025",
+							"protocol": "https",
+							"host": [
+								"cricbuzz-cricket",
+								"p",
+								"rapidapi",
+								"com"
+							],
+							"path": [
+								"news",
+								"v1",
+								"detail",
+								"122025"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Series",
+			"item": [
+				{
+					"name": "Get Series List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-Key",
+								"value": "fa2859d5a3msh2a46eb1fd89e982p149436jsncb8c4e471491",
+								"type": "text"
+							},
+							{
+								"key": "X-RapidAPI-Host",
+								"value": "cricbuzz-cricket.p.rapidapi.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://cricbuzz-cricket.p.rapidapi.com/series/v1/international",
+							"protocol": "https",
+							"host": [
+								"cricbuzz-cricket",
+								"p",
+								"rapidapi",
+								"com"
+							],
+							"path": [
+								"series",
+								"v1",
+								"international"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Series List Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-Key",
+								"value": "fa2859d5a3msh2a46eb1fd89e982p149436jsncb8c4e471491",
+								"type": "text"
+							},
+							{
+								"key": "X-RapidAPI-Host",
+								"value": "cricbuzz-cricket.p.rapidapi.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://cricbuzz-cricket.p.rapidapi.com/series/v1/3641",
+							"protocol": "https",
+							"host": [
+								"cricbuzz-cricket",
+								"p",
+								"rapidapi",
+								"com"
+							],
+							"path": [
+								"series",
+								"v1",
+								"3641"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Points Table",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-Key",
+								"value": "fa2859d5a3msh2a46eb1fd89e982p149436jsncb8c4e471491",
+								"type": "text"
+							},
+							{
+								"key": "X-RapidAPI-Host",
+								"value": "cricbuzz-cricket.p.rapidapi.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/series/3718/points-table",
+							"protocol": "https",
+							"host": [
+								"cricbuzz-cricket",
+								"p",
+								"rapidapi",
+								"com"
+							],
+							"path": [
+								"stats",
+								"v1",
+								"series",
+								"3718",
+								"points-table"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-Key",
+								"value": "fa2859d5a3msh2a46eb1fd89e982p149436jsncb8c4e471491",
+								"type": "text"
+							},
+							{
+								"key": "X-RapidAPI-Host",
+								"value": "cricbuzz-cricket.p.rapidapi.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://cricbuzz-cricket.p.rapidapi.com/schedule/v1/international",
+							"protocol": "https",
+							"host": [
+								"cricbuzz-cricket",
+								"p",
+								"rapidapi",
+								"com"
+							],
+							"path": [
+								"schedule",
+								"v1",
+								"international"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

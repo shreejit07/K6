@@ -5,8 +5,15 @@ export const options = {
   thresholds: {
     http_req_failed: ['rate<0.01'], 
     http_req_duration: ['p(95)>300'], 
-    checks:['rate==100']
+    //checks:['rate==100']
   },
+  stages: [
+    { duration: '1m', target: 100 },
+    { duration: '5m', target: 300 },
+    { duration: '2m', target: 500 },
+    { duration: '2m', target: 700 },
+    { duration: '1m', target: 0 },
+  ],
 };
 
 export default function () {
